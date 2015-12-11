@@ -1,0 +1,28 @@
+{
+  "name": "workbench-react-js",
+  "version": "1.0.0",
+  "author": "East Coast Product",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.0",
+    "debug": "^2.2.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "mongoose": "^4.3.1",
+    "morgan": "^1.6.1",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "validator": "^4.4.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.3.17",
+    "babel-loader": "^6.2.0",
+    "babel-preset-react": "^6.3.13",
+    "webpack": "^1.12.9"
+  },
+  "scripts": {
+    "start": "webpack --progress --colors --watch -d",
+    "build": "webpack --progress --colors -p",
+    "server": "node bin/www"
+  }
+}
