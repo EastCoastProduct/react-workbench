@@ -66,8 +66,9 @@ var TestComponent = React.createClass({
 
     return(<div>
       {items.map(function(item) {
-        return <div><input type='checkbox' checked={item.finished}
-          id={item._id} name={item.name} onChange={this.setItemAsFinished}/>
+        return <div className='list-item'>
+          <input className='checkbox' type='checkbox' checked={item.finished}
+            id={item._id} name={item.name} onChange={this.setItemAsFinished}/>
             {item.name}</div>;
       }.bind(this))}
     </div>);
@@ -75,14 +76,17 @@ var TestComponent = React.createClass({
 
   render: function() {
     return (
-      <div>
+      <div className='container'>
         <h1>Todo Example</h1>
         <form onSubmit={this.addNewItem}>
-          <input type='text' placeholder='What needs to be done'
+          <input className='main-input' type='text'
+            placeholder='What needs to be done'
             value={this.state.newTodo} onChange={this.updateNewTodo}/>
-          <button type='submit'>Add new</button>
+          <button type='submit' className='main-button'>
+            <i className='fa fa-pencil'></i>
+          </button>
         </form>
-        <div>{this.renderAllTodos()}</div>
+        <div className='list'>{this.renderAllTodos()}</div>
       </div>
     );
   }
