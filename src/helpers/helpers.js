@@ -40,6 +40,21 @@ var helpers = {
     .catch(function (response) {
       console.log(response);
     });
+  },
+
+  setTodoAsNotFinished: function(id, name) {
+    return axios.post('http://localhost:3000/todos/' + id, {
+      name: name,
+      finished: false
+    })
+    .then(function (response) {
+      return {
+        todos: response.data
+      }
+    })
+    .catch(function (response) {
+      console.log(response);
+    });
   }
 }
 

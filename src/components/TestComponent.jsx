@@ -21,15 +21,30 @@ var TestComponent = React.createClass({
 
   setItemAsFinished: function(e) {
     e.preventDefault();
-    helpers.setTodoAsFinished(e.target.id, e.target.name)
-    .then(function (data) {
-        helpers.getTodos()
-        .then(function (data) {
-          this.setState({
-            todos: data.todos.todos,
-          });
-        }.bind(this));
+
+    var isFinished = e.target.checked;
+
+    if (isFinished) {
+      helpers.setTodoAsFinished(e.target.id, e.target.name)
+      .then(function (data) {
+          helpers.getTodos()
+          .then(function (data) {
+            this.setState({
+              todos: data.todos.todos,
+            });
+          }.bind(this));
       }.bind(this));
+    } else {
+      helpers.setTodoAsNotFinished(e.target.id, e.target.name)
+      .then(function (data) {
+          helpers.getTodos()
+          .then(function (data) {
+            this.setState({
+              todos: data.todos.todos,
+            });
+          }.bind(this));
+      }.bind(this));
+    }
   },
 
   addNewItem: function(e) {
